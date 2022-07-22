@@ -9,8 +9,9 @@ import { getPageCount } from './utils/page';
 
 
 function App() {
-  const { totalCountItem, limit, currentPage } = useTypedSelector(state => state.pagination)
-  const pages = usePagination(getPageCount(totalCountItem, limit))
+  const { products } = useTypedSelector(state => state.products)
+  const { limit, currentPage } = useTypedSelector(state => state.pagination)
+  const pages = usePagination(getPageCount(products.length + 1, limit))
 
   return (
     <div className="App">

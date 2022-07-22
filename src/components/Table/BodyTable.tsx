@@ -13,14 +13,14 @@ const BodyTable: FC = () => {
    const { value } = useTypedSelector(state => state.search)
    const dispatch = useTypedDispatch()
    const ress = useSearch(products, value)
-   console.log(ress)
+
    useEffect(() => {
-      dispatch(getProduct(offsetFrom(currentPage, limit), offset(limit, currentPage)))
-   }, [limit, currentPage])
+      dispatch(getProduct())
+   }, [])
 
    return (
       <TableBody>
-         {products.map((product) => (
+         {ress.slice(offsetFrom(currentPage, limit), offset(limit, currentPage)).map((product) => (
             <TableRow
                key={product.id}
                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
