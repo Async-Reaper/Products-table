@@ -20,7 +20,7 @@ const BodyTable: FC = () => {
 
    return (
       <TableBody>
-         {ress.slice(offsetFrom(currentPage, limit), offset(limit, currentPage)).map((product) => (
+         {ress.map((product) => (
             <TableRow
                key={product.id}
                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
@@ -31,7 +31,7 @@ const BodyTable: FC = () => {
                <TableCell align="right">{product.name}</TableCell>
                <TableCell align="right">{product.standart_serving}</TableCell>
             </TableRow>
-         ))}
+         )).slice(offsetFrom(currentPage, limit), offset(limit, currentPage))}
       </TableBody>
    )
 }
