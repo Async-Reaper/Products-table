@@ -5,9 +5,15 @@ const HeadTable: FC = () => {
    return (
       <TableHead>
          <TableRow>
-            <TableCell>ID</TableCell>
-            <TableCell align="right">Name</TableCell>
-            <TableCell align="right">Standart serving</TableCell>
+            <TableCell>
+               <strong>ID</strong>
+            </TableCell>
+            <TableCell align="right">
+               <strong>Name</strong>
+            </TableCell>
+            <TableCell align="right">
+               <strong>Standart serving</strong>
+            </TableCell>
          </TableRow>
       </TableHead>
    )
