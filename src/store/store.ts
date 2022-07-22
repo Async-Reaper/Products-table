@@ -1,8 +1,10 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import paginationReducer from "./reducers/paginationReducer";
 import productReducer from "./reducers/productReducer";
 
 const rootStore = combineReducers({
-   products: productReducer
+   products: productReducer,
+   pagination: paginationReducer
 })
 
 export const setupStore = () => {
