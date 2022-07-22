@@ -7,6 +7,8 @@ import { usePagination } from './hooks/usePagination';
 import { useTypedDispatch } from './hooks/useTypedDispatch';
 import { useTypedSelector } from './hooks/useTypedSelector';
 import { setPage } from './store/reducers/paginationReducer';
+import { offset } from './utils/offset';
+import { offsetFrom } from './utils/offsetFrom';
 import { getPageCount } from './utils/page';
 
 const PaginationWrapper = styled('div')({
@@ -18,6 +20,7 @@ function App() {
   const { totalCountItem, limit, currentPage } = useTypedSelector(state => state.pagination)
   const pages = usePagination(getPageCount(totalCountItem, limit))
   const dispatch = useTypedDispatch()
+
   return (
     <div className="App">
       <div className='settings'>

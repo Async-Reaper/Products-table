@@ -3,15 +3,17 @@ import React, { FC, useEffect } from 'react'
 import { useTypedDispatch } from '../../hooks/useTypedDispatch'
 import { useTypedSelector } from '../../hooks/useTypedSelector'
 import { getProduct } from '../../service/getProduct'
+import { offset } from '../../utils/offset'
+import { offsetFrom } from '../../utils/offsetFrom'
 
 const BodyTable: FC = () => {
    const { products } = useTypedSelector(state => state.products)
-   const { limit } = useTypedSelector(state => state.pagination)
+   const { limit, currentPage } = useTypedSelector(state => state.pagination)
    const dispatch = useTypedDispatch()
 
    useEffect(() => {
-      dispatch(getProduct(0, limit))
-   }, [limit])
+      dispatch(getProduct(offsetFrom(currentPage, limit), offset(limit, currentPage)))
+   }, [limit, currentPage])
 
    return (
       <TableBody>
