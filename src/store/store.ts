@@ -1,10 +1,12 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import paginationReducer from "./reducers/paginationReducer";
 import productReducer from "./reducers/productReducer";
+import searchReducer from "./reducers/searchReducer";
 
 const rootStore = combineReducers({
    products: productReducer,
-   pagination: paginationReducer
+   pagination: paginationReducer,
+   search: searchReducer
 })
 
 export const setupStore = () => {
