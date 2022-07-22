@@ -6,11 +6,12 @@ import { getProduct } from '../../service/getProduct'
 
 const BodyTable: FC = () => {
    const { products } = useTypedSelector(state => state.products)
+   const { limit } = useTypedSelector(state => state.pagination)
    const dispatch = useTypedDispatch()
 
    useEffect(() => {
-      dispatch(getProduct(0, 4))
-   }, [])
+      dispatch(getProduct(0, limit))
+   }, [limit])
 
    return (
       <TableBody>

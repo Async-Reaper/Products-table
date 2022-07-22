@@ -9,7 +9,7 @@ interface IPagination {
 const initialState: IPagination = {
    totalPages: 0,
    totalCountItem: 0,
-   limit: 5
+   limit: 4
 }
 
 const paginationSlice = createSlice({

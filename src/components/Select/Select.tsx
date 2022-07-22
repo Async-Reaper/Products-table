@@ -7,7 +7,7 @@ const Select: FC = () => {
    const dispatch = useTypedDispatch()
 
    const selectHandle = (e: React.ChangeEvent<HTMLSelectElement>) => {
-      dispatch(setLimit(e.target.value))
+      dispatch(setLimit(+(e.target.value) - 1))
    }
 
    return (
