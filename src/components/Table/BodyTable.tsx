@@ -9,7 +9,7 @@ const BodyTable: FC = () => {
    const dispatch = useTypedDispatch()
 
    useEffect(() => {
-      dispatch(getProduct(0, 14))
+      dispatch(getProduct(0, 4))
    }, [])
 
    return (
