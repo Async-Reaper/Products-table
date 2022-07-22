@@ -2,3 +2,9 @@
    max-width: 750px;
    margin: 15px auto;
 }
+
+.settings {
+   display: flex;
+   justify-content: space-between;
+   margin: 15px 0;
+}

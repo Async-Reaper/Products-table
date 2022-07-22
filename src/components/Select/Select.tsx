@@ -3,7 +3,7 @@ import React, { FC } from 'react'
 
 const Select: FC = () => {
    return (
-      <FormControl fullWidth>
+      <FormControl>
          <InputLabel variant="standard" htmlFor="uncontrolled-native">
             По
          </InputLabel>
