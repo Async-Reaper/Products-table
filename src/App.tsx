@@ -14,10 +14,9 @@ function App() {
   const { limit, currentPage } = useTypedSelector(state => state.pagination)
   const { value } = useTypedSelector(state => state.search)
 
-  const res = useSearch(products, value)
-  const pages = usePagination(getPageCount(res.length, limit))
+  const search = useSearch(products, value)
+  const pages = usePagination(getPageCount(search.length, limit))
 
-  console.log(getPageCount(res.length, limit))
   return (
     <div className="App">
       <Settings />

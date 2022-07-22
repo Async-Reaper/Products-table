@@ -12,7 +12,7 @@ const BodyTable: FC = () => {
    const { limit, currentPage } = useTypedSelector(state => state.pagination)
    const { value } = useTypedSelector(state => state.search)
    const dispatch = useTypedDispatch()
-   const ress = useSearch(products, value)
+   const search = useSearch(products, value)
 
    useEffect(() => {
       dispatch(getProduct())
@@ -20,7 +20,7 @@ const BodyTable: FC = () => {
 
    return (
       <TableBody>
-         {ress.map((product) => (
+         {search.map((product) => (
             <TableRow
                key={product.id}
                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
