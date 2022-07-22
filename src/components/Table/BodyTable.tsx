@@ -1,5 +1,6 @@
 import { TableBody, TableCell, TableRow } from '@mui/material'
 import React, { FC, useEffect } from 'react'
+import { useSearch } from '../../hooks/useSearch'
 import { useTypedDispatch } from '../../hooks/useTypedDispatch'
 import { useTypedSelector } from '../../hooks/useTypedSelector'
 import { getProduct } from '../../service/getProduct'
@@ -9,8 +10,10 @@ import { offsetFrom } from '../../utils/offsetFrom'
 const BodyTable: FC = () => {
    const { products } = useTypedSelector(state => state.products)
    const { limit, currentPage } = useTypedSelector(state => state.pagination)
+   const { value } = useTypedSelector(state => state.search)
    const dispatch = useTypedDispatch()
-
+   const ress = useSearch(products, value)
+   console.log(ress)
    useEffect(() => {
       dispatch(getProduct(offsetFrom(currentPage, limit), offset(limit, currentPage)))
    }, [limit, currentPage])
