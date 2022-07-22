@@ -4,12 +4,14 @@ interface IPagination {
    totalPages: number;
    totalCountItem: number;
    limit: number;
+   currentPage: number
 }
 
 const initialState: IPagination = {
    totalPages: 0,
    totalCountItem: 0,
-   limit: 4
+   limit: 4,
+   currentPage: 1
 }
 
 const paginationSlice = createSlice({
@@ -19,11 +21,14 @@ const paginationSlice = createSlice({
       setLimit(state, action) {
          state.limit = action.payload
       },
-      getTotalCountPage(state, action) {
+      getTotalCountProduct(state, action) {
          state.totalCountItem = action.payload
+      },
+      setPage(state, action) {
+         state.currentPage = action.payload
       }
    }
 })
 
 export default paginationSlice.reducer
-export const { setLimit, getTotalCountPage } = paginationSlice.actions
+export const { setLimit, getTotalCountProduct, setPage } = paginationSlice.actions
